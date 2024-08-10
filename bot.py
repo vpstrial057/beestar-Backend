@@ -6,6 +6,11 @@ from telebot import types
 load_dotenv()
 
 TOKEN = os.getenv("BOT_TOKEN")
+if TOKEN is None:
+    print("Bot token is not defined. Please check your environment variables.")
+else:
+    print("Bot token is loaded properly.")
+
 bot = telebot.TeleBot(TOKEN)
 
 
