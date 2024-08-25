@@ -45,7 +45,7 @@ def create_markup(include_guide_button=True, user_name=None, user_id=None):
         text="Click to play 🎮", web_app=types.WebAppInfo(game_url)
     )
     group_button = types.InlineKeyboardButton(
-        text="Join our Telegram group 📢", url="https://t.me/beetradefinance"
+        text="Join our Telegram group 📢", url="https://t.me/BTFannouncement"
     )
     markup.add(play_button)
     if include_guide_button:
