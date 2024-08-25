@@ -36,11 +36,20 @@ guide_text = (
 )
 
 
-def create_markup(include_guide_button=True, user_name=None, user_id=None):
+def create_markup(include_guide_button=True, user_name=None, user_id=None, startapp=None):
     """Creates the inline keyboard markup with play, guide, and group buttons."""
     markup = types.InlineKeyboardMarkup()
-    game_url = f"https://beestar-kombat-omega.vercel.app/?id={user_id}&userName={user_name}"
+    game_url = f"https://beestar-kombat-new.vercel.app/?id={user_id}&userName={user_name}"
     print("backend bot",game_url)
+
+     
+    # Add the startapp query parameter to the game_url if it's present
+    if startapp:
+        game_url += f"&referredByUser={startapp}"
+    
+
+    print("backend bot",game_url)
+
     play_button = types.InlineKeyboardButton(
         text="Click to play 🎮", web_app=types.WebAppInfo(game_url)
     )
@@ -63,6 +72,31 @@ def send_welcome(message):
     user_name = message.chat.first_name
     user_id = message.chat.id
     print("user",user_name, user_id)
+
+
+      
+    start_param = None
+
+    # Check if the message has a `start` parameter
+    if " " in message.text:  # Command and parameter are separated by a space
+        params = message.text.split(" ")[1]
+        
+        # Manually parse the parameters
+        if "&" in params:
+            param_pairs = params.split("&")
+            for pair in param_pairs:
+                key, value = pair.split("=")
+                if key == "start":
+                    start_param = value
+
+        else:
+            start_param = params
+
+            print(f"Bot started with start parameter: {start_param}")
+
+
+
+
     message_text = (
         f"Hello {user_name}! Welcome to Beestar Kombat 🐝\n"
         "You are now the director of a buzzing exchange. Which one? You choose. \n\n"
@@ -71,7 +105,7 @@ def send_welcome(message):
         "Don't forget your fellow bees — bring them into the game and collect even more honey together!"
     )
 
-    markup = create_markup(user_name=user_name, user_id=user_id)
+    markup = create_markup(user_name=user_name, user_id=user_id, startapp=start_param)
     bot.send_message(message.chat.id, message_text, reply_markup=markup)
 
 
