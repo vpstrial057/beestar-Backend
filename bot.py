@@ -17,7 +17,7 @@ bot = telebot.TeleBot(TOKEN)
 # Define the guide text
 guide_text = (
     "How to play Beestar Kombat 🐝\n\n"
-    "Full version of the guide: (https://beestar-kombat.notion.site/Beestar-Kombat-manual-7e53c342eef143de8bc9c8262ea3a36d)\n\n"
+    # "Full version of the guide: (https://beestar-kombat.notion.site/Beestar-Kombat-manual-7e53c342eef143de8bc9c8262ea3a36d)\n\n"
     "💰 Tap to earn\n"
     "Tap the screen and collect honey.\n\n"
     "⛏ Harvest\n"
