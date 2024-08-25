@@ -89,10 +89,10 @@ def send_welcome(message):
                 if key == "start":
                     start_param = value
 
-            print(f"Bot started with start parameter: {start_param}")
+            print(f"Bot started with start parameter in if statement: {start_param}")
         else:
             start_param = params
-
+            print(f"Bot started with start parameter in else statement: {start_param}")
 
 
 
