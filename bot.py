@@ -36,7 +36,7 @@ guide_text = (
 def create_markup(include_guide_button=True, user_name=None, user_id=None, startapp=None):
     """Creates the inline keyboard markup with play, guide, and group buttons."""
     markup = types.InlineKeyboardMarkup()
-    game_url = f"https://beestar-kombat-new.vercel.app/?id={user_id}&userName={user_name}"
+    game_url = f"https://beestar-kombat-omega.vercel.app/?id={user_id}&userName={user_name}"
 
     if startapp:
         game_url += f"&referredByUser={startapp}"
